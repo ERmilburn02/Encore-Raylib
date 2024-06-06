@@ -27,7 +27,7 @@ endif()
 
 option(SUPPORT_FILEFORMAT_JPG "Support loading JPG as textures" ON)
 # Add all subdirectories of src
-file(GLOB_RECURSE SRC_FILES "src/*.cpp")
+file(GLOB_RECURSE SRC_FILES "src/*.cpp" "src/*.c")
 file(GLOB_RECURSE INC_FILES "include/*.h" "src/*.h")
 # Add source files to the executable
 add_executable(Encore ${SRC_FILES} ${INC_FILES})

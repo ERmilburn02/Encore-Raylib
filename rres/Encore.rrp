@@ -1,0 +1,91 @@
+#
+# rrp v1.0 - rres project text file generated using rrespacker
+#
+# File info expected structure:
+# f <fileFullPath@mappingFileName>,<external-link>,<force-raw>,<custom-id>,<compressor>,<cipher>
+#
+# Number of files:     83
+#
+f D:\Dev\Encore-Raylib\Encore\Assets\combobreak.mp3@Assets/combobreak.mp3,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\encore-logo.png@Assets/encore-logo.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\encore-white.png@Assets/encore-white.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\encore_favicon-NEW.png@Assets/encore_favicon-NEW.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\encore_favicon-NEW.png~@Assets/encore_favicon-NEW.png~,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\encore_favicon.ico@Assets/encore_favicon.ico,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\encore_favicon.png@Assets/encore_favicon.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\JosefinSans-Italic.ttf@Assets/fonts/JosefinSans-Italic.ttf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\RedHatDisplay-Black.ttf@Assets/fonts/RedHatDisplay-Black.ttf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\RedHatDisplay-BlackItalic.ttf@Assets/fonts/RedHatDisplay-BlackItalic.ttf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\Rubik-Bold.ttf@Assets/fonts/Rubik-Bold.ttf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\Rubik-BoldItalic.ttf@Assets/fonts/Rubik-BoldItalic.ttf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\Rubik-Italic.ttf@Assets/fonts/Rubik-Italic.ttf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\Rubik-Regular.ttf@Assets/fonts/Rubik-Regular.ttf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\fonts\sdf.fs@Assets/fonts/sdf.fs,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\board.png@Assets/highway/board.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\board_emh.obj@Assets/highway/board_emh.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\board_x.obj@Assets/highway/board_x.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\highway.png@Assets/highway/highway.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\highwayMask.png@Assets/highway/highwayMask.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\highway_emh.obj@Assets/highway/highway_emh.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\highway_x.obj@Assets/highway/highway_x.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\lanes.obj@Assets/highway/lanes.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\lanes.png@Assets/highway/lanes.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\overdrive.png@Assets/highway/overdrive.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\overdrive_emh.obj@Assets/highway/overdrive_emh.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\overdrive_x.obj@Assets/highway/overdrive_x.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\sides.png@Assets/highway/sides.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\sides_emh.obj@Assets/highway/sides_emh.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\sides_x.obj@Assets/highway/sides_x.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\smasher.obj@Assets/highway/smasher.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\smasherBoard.png@Assets/highway/smasherBoard.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\SmasherInner.png@Assets/highway/SmasherInner.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\SmasherInnerActive.png@Assets/highway/SmasherInnerActive.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\SmasherOuter.png@Assets/highway/SmasherOuter.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\smasher_press.png@Assets/highway/smasher_press.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\smasher_reg.png@Assets/highway/smasher_reg.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\highway\untitled.png@Assets/highway/untitled.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\kick.wav@Assets/kick.wav,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\lift.obj@Assets/notes/lift.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note-hopo.png@Assets/notes/note-hopo.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note-hopo_e.png@Assets/notes/note-hopo_e.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note.obj@Assets/notes/note.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note.png@Assets/notes/note.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note_d.png@Assets/notes/note_d.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note_e.png@Assets/notes/note_e.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note_e_new.png@Assets/notes/note_e_new.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note_od_d.png@Assets/notes/note_od_d.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\note_od_e.png@Assets/notes/note_od_e.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\sustain.png@Assets/notes/sustain.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\notes\sustain.xcf@Assets/notes/sustain.xcf,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\oldmult\multiplierempty.png@Assets/oldmult/multiplierempty.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\oldmult\overdrivebar.png@Assets/oldmult/overdrivebar.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\oldmult\overdrivefill.png@Assets/oldmult/overdrivefill.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\shockwave.obj@Assets/shockwave.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\shockwave.png@Assets/shockwave.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\discord-mark-black.png@Assets/ui/discord-mark-black.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\discord-mark-white.png@Assets/ui/discord-mark-white.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\empty-star.png@Assets/ui/empty-star.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\encore.rgs@Assets/ui/encore.rgs,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\github-mark-white.png@Assets/ui/github-mark-white.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\github-mark.png@Assets/ui/github-mark.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\gold-star.png@Assets/ui/gold-star.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\gold-star_unfilled.png@Assets/ui/gold-star_unfilled.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\multbar_3.obj@Assets/ui/multbar_3.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\multbar_5.obj@Assets/ui/multbar_5.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\multcircle_fill.obj@Assets/ui/multcircle_fill.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\multcircle_frame.obj@Assets/ui/multcircle_frame.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\multnumber.fs@Assets/ui/multnumber.fs,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_base-old.png@Assets/ui/mult_base-old.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_base.png@Assets/ui/mult_base.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_fill-old.png@Assets/ui/mult_fill-old.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_fill.png@Assets/ui/mult_fill.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_fill_od-old.png@Assets/ui/mult_fill_od-old.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_fill_od.png@Assets/ui/mult_fill_od.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_number.png@Assets/ui/mult_number.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\mult_number_plane.obj@Assets/ui/mult_number_plane.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\odmult.fs@Assets/ui/odmult.fs,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\od_fill.obj@Assets/ui/od_fill.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\od_frame.obj@Assets/ui/od_frame.obj,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\splashes.txt@Assets/ui/splashes.txt,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\star.png@Assets/ui/star.png,0,0,0x00000000,0,0
+f D:\Dev\Encore-Raylib\Encore\Assets\ui\wavy.fs@Assets/ui/wavy.fs,0,0,0x00000000,0,0

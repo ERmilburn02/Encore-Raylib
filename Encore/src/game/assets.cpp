@@ -7,11 +7,44 @@
 #include "raygui.h"
 #include "game/player.h"
 
+#include <iostream>
+#include "rres/rres.h"
+#include "rres/rres-raylib.h"
+
 
 Player playerAssets = Player::getInstance();
 
 class Assets;
 
+Texture2D LoadTextureFilterFromArchive(const std::filesystem::path& rresPath, const std::string& texturePath, int& loadedAssets)
+{
+    Texture2D texture = {0};
+
+    rresCentralDir dir = rresLoadCentralDirectory(rresPath.string().c_str());
+    unsigned int id = rresGetResourceId(dir, texturePath.c_str());
+    rresResourceChunk chunk = rresLoadResourceChunk(rresPath.string().c_str(), id);
+    int result = UnpackResourceChunk(&chunk);
+
+    if (result == RRES_SUCCESS)
+    {
+        Image image = LoadImageFromResource(chunk);
+        texture = LoadTextureFromImage(image);
+        UnloadImage(image);
+    }
+
+    rresUnloadResourceChunk(chunk);
+    rresUnloadCentralDirectory(dir);
+
+    GenTextureMipmaps(&texture);
+    SetTextureFilter(texture, TEXTURE_FILTER_TRILINEAR);
+    loadedAssets++;
+
+    return texture;
+}
+
+// TODO ermilburn02 - loading models from archive
+
+// TODO ermilburn02 - loading fonts from archive
 
 Texture2D Assets::LoadTextureFilter(const std::filesystem::path &texturePath, int& loadedAssets) {
     Texture2D tex = LoadTexture(texturePath.string().c_str());
@@ -42,27 +75,37 @@ Font Assets::LoadFontFilter(const std::filesystem::path &fontPath, int fontSize,
 }
 void Assets::FirstAssets() {
     icon = LoadImage((directory / "Assets/encore_favicon-NEW.png").string().c_str());
-    encoreWhiteLogo = Assets::LoadTextureFilter((directory / "Assets/encore-white.png"), loadedAssets);
+    // encoreWhiteLogo = Assets::LoadTextureFilter((directory / "Assets/encore-white.png"), loadedAssets);
+    // encoreWhiteLogo = Assets::LoadTextureFilter(directory, "Assets/encore-white.png", loadedAssets);
+    encoreWhiteLogo = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/encore-white.png", loadedAssets);
     rubik = Assets::LoadFontFilter((directory / "Assets/fonts/Rubik-Regular.ttf"), 256, loadedAssets);
 }
 void Assets::LoadAssets() {
     smasherReg = Assets::LoadModel_((directory / "Assets/highway/smasher.obj"), loadedAssets);
-    smasherRegTex = Assets::LoadTextureFilter(directory / "Assets/highway/smasher_reg.png", loadedAssets);
+    // smasherRegTex = Assets::LoadTextureFilter(directory / "Assets/highway/smasher_reg.png", loadedAssets);
+    smasherRegTex = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/highway/smasher_reg.png", loadedAssets);
 
-    smasherBoardTex = Assets::LoadTextureFilter(directory / "Assets/highway/board.png", loadedAssets);
+    // smasherBoardTex = Assets::LoadTextureFilter(directory / "Assets/highway/board.png", loadedAssets);
+    smasherBoardTex = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/highway/board.png", loadedAssets);
     smasherBoard = Assets::LoadModel_((directory / "Assets/highway/board_x.obj"), loadedAssets);
     smasherBoardEMH = Assets::LoadModel_((directory / "Assets/highway/board_emh.obj"), loadedAssets);
 
     lanes = Assets::LoadModel_((directory / "Assets/highway/lanes.obj"), loadedAssets);
-    lanesTex = Assets::LoadTextureFilter(directory / "Assets/highway/lanes.png", loadedAssets);
+    // lanesTex = Assets::LoadTextureFilter(directory / "Assets/highway/lanes.png", loadedAssets);
+    lanesTex = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/highway/lanes.png", loadedAssets);
 
     smasherPressed = Assets::LoadModel_((directory / "Assets/highway/smasher.obj"), loadedAssets);
-    smasherPressTex = Assets::LoadTextureFilter(directory / "Assets/highway/smasher_press.png", loadedAssets);
+    // smasherPressTex = Assets::LoadTextureFilter(directory / "Assets/highway/smasher_press.png", loadedAssets);
+    smasherPressTex = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/highway/smasher_press.png", loadedAssets);
 
-    star = Assets::LoadTextureFilter(directory/ "Assets/ui/star.png", loadedAssets);
-    goldStar = Assets::LoadTextureFilter(directory/ "Assets/ui/gold-star.png", loadedAssets);
-    goldStarUnfilled = Assets::LoadTextureFilter(directory/ "Assets/ui/gold-star_unfilled.png", loadedAssets);
-    emptyStar = Assets::LoadTextureFilter(directory/ "Assets/ui/empty-star.png", loadedAssets);
+    // star = Assets::LoadTextureFilter(directory/ "Assets/ui/star.png", loadedAssets);
+    star = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/star.png", loadedAssets);
+    // goldStar = Assets::LoadTextureFilter(directory/ "Assets/ui/gold-star.png", loadedAssets);
+    goldStar = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/gold-star.png", loadedAssets);
+    // goldStarUnfilled = Assets::LoadTextureFilter(directory/ "Assets/ui/gold-star_unfilled.png", loadedAssets);
+    goldStarUnfilled = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/gold-star_unfilled.png", loadedAssets);
+    // emptyStar = Assets::LoadTextureFilter(directory/ "Assets/ui/empty-star.png", loadedAssets);
+    emptyStar = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/empty-star.png", loadedAssets);
 
     odFrame = Assets::LoadModel_((directory / "Assets/ui/od_frame.obj"), loadedAssets);
     odBar = Assets::LoadModel_((directory / "Assets/ui/od_fill.obj"), loadedAssets);
@@ -71,10 +114,14 @@ void Assets::LoadAssets() {
     multCtr3 = Assets::LoadModel_((directory / "Assets/ui/multbar_3.obj"), loadedAssets);
     multCtr5 = Assets::LoadModel_((directory / "Assets/ui/multbar_5.obj"), loadedAssets);
     multNumber = Assets::LoadModel_((directory / "Assets/ui/mult_number_plane.obj"), loadedAssets);
-    odMultFrame = Assets::LoadTextureFilter(directory / "Assets/ui/mult_base.png", loadedAssets);
-    odMultFill = Assets::LoadTextureFilter(directory / "Assets/ui/mult_fill.png", loadedAssets);
-    odMultFillActive = Assets::LoadTextureFilter(directory / "Assets/ui/mult_fill_od.png", loadedAssets);
-    multNumberTex = Assets::LoadTextureFilter(directory / "Assets/ui/mult_number.png", loadedAssets);
+    // odMultFrame = Assets::LoadTextureFilter(directory / "Assets/ui/mult_base.png", loadedAssets);
+    odMultFrame = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/mult_base.png", loadedAssets);
+    // odMultFill = Assets::LoadTextureFilter(directory / "Assets/ui/mult_fill.png", loadedAssets);
+    odMultFill = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/mult_fill.png", loadedAssets);
+    // odMultFillActive = Assets::LoadTextureFilter(directory / "Assets/ui/mult_fill_od.png", loadedAssets);
+    odMultFillActive = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/mult_fill_od.png", loadedAssets);
+    // multNumberTex = Assets::LoadTextureFilter(directory / "Assets/ui/mult_number.png", loadedAssets);
+    multNumberTex = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/mult_number.png", loadedAssets);
     odMultShader = LoadShader(0, "Assets/ui/odmult.fs");
     multNumberShader = LoadShader(0, "Assets/ui/multnumber.fs");
 
@@ -92,23 +139,31 @@ void Assets::LoadAssets() {
     emhHighway = Assets::LoadModel_((directory / "Assets/highway/highway_emh.obj"), loadedAssets);
     odHighwayEMH = Assets::LoadModel_((directory / "Assets/highway/overdrive_emh.obj"), loadedAssets);
     odHighwayX = Assets::LoadModel_((directory / "Assets/highway/overdrive_x.obj"), loadedAssets);
-    highwayTexture = Assets::LoadTextureFilter(directory / "Assets/highway/highway.png", loadedAssets);
-    highwayTextureOD = Assets::LoadTextureFilter(directory / "Assets/highway/overdrive.png", loadedAssets);
-    highwaySidesTexture = Assets::LoadTextureFilter(directory / "Assets/highway/sides.png", loadedAssets);
+    // highwayTexture = Assets::LoadTextureFilter(directory / "Assets/highway/highway.png", loadedAssets);
+    highwayTexture = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/highway/highway.png", loadedAssets);
+    // highwayTextureOD = Assets::LoadTextureFilter(directory / "Assets/highway/overdrive.png", loadedAssets);
+    highwayTextureOD = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/highway/overdrive.png", loadedAssets);
+    // highwaySidesTexture = Assets::LoadTextureFilter(directory / "Assets/highway/sides.png", loadedAssets);
+    highwaySidesTexture = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/highway/sides.png", loadedAssets);
 
     noteModel = Assets::LoadModel_((directory / "Assets/notes/note.obj"), loadedAssets);
-    noteTexture = Assets::LoadTextureFilter(directory / "Assets/notes/note.png", loadedAssets);
-    emitTexture = Assets::LoadTextureFilter(directory / "Assets/notes/note_e_new.png", loadedAssets);
+    // noteTexture = Assets::LoadTextureFilter(directory / "Assets/notes/note.png", loadedAssets);
+    noteTexture = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/notes/note.png", loadedAssets);
+    // emitTexture = Assets::LoadTextureFilter(directory / "Assets/notes/note_e_new.png", loadedAssets);
+    emitTexture = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/notes/note_e_new.png", loadedAssets);
 
     noteModelOD = Assets::LoadModel_((directory / "Assets/notes/note.obj"), loadedAssets);
-    noteTextureOD = Assets::LoadTextureFilter(directory / "Assets/notes/note.png", loadedAssets);
-    emitTextureOD = Assets::LoadTextureFilter(directory / "Assets/notes/note_e_new.png", loadedAssets);
+    // noteTextureOD = Assets::LoadTextureFilter(directory / "Assets/notes/note.png", loadedAssets);
+    noteTextureOD = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/notes/note.png", loadedAssets);
+    // emitTextureOD = Assets::LoadTextureFilter(directory / "Assets/notes/note_e_new.png", loadedAssets);
+    emitTextureOD = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/notes/note_e_new.png", loadedAssets);
 
     liftModel = Assets::LoadModel_((directory / "Assets/notes/lift.obj"), loadedAssets);
     liftModelOD = Assets::LoadModel_((directory / "Assets/notes/lift.obj"), loadedAssets);
 
 
-    songBackground = Assets::LoadTextureFilter((directory / "Assets/background.png"), loadedAssets);
+    // songBackground = Assets::LoadTextureFilter((directory / "Assets/background.png"), loadedAssets);
+    songBackground = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/background.png", loadedAssets);
 
     redHatDisplayItalic = Assets::LoadFontFilter((directory/"Assets/fonts/RedHatDisplay-BlackItalic.ttf"), 256, loadedAssets);
     redHatDisplayItalicLarge = Assets::LoadFontFilter((directory/"Assets/fonts/RedHatDisplay-BlackItalic.ttf"), 256, loadedAssets);
@@ -126,10 +181,13 @@ void Assets::LoadAssets() {
     //clapOD = LoadSound((directory / "Assets/highway/clap.ogg"));
     //SetSoundVolume(clapOD, 0.375);
 
-    discord = Assets::LoadTextureFilter(directory/"Assets/ui/discord-mark-white.png", loadedAssets);
-    github = Assets::LoadTextureFilter(directory/"Assets/ui/github-mark-white.png", loadedAssets);
+    // discord = Assets::LoadTextureFilter(directory/"Assets/ui/discord-mark-white.png", loadedAssets);
+    discord = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/discord-mark-white.png", loadedAssets);
+    // github = Assets::LoadTextureFilter(directory/"Assets/ui/github-mark-white.png", loadedAssets);
+    github = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/ui/github-mark-white.png", loadedAssets);
 
-    sustainTexture = Assets::LoadTextureFilter(directory / "Assets/notes/sustain.png", loadedAssets);
+    // sustainTexture = Assets::LoadTextureFilter(directory / "Assets/notes/sustain.png", loadedAssets);
+    sustainTexture = LoadTextureFilterFromArchive((directory / "Resources.rres"), "Assets/notes/sustain.png", loadedAssets);
 
     smasherReg.materials[0].maps[MATERIAL_MAP_ALBEDO].texture = smasherRegTex;
     smasherReg.materials[0].maps[MATERIAL_MAP_ALBEDO].color = WHITE;
