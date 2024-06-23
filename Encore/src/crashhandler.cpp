@@ -129,10 +129,10 @@ void registerCrashHandler()
     char* dbName = (char*)"raylib_encore_ermil_experiment";
     char* appName = (char*)"Encore";
 
-	#if defined(DEBUG)
-	char* appVersion = (char*)GIT_COMMIT_HASH;
-	#else
+	#if defined(NDEBUG)
     char* appVersion = (char*)ENCORE_VERSION;
+	#else
+	char* appVersion = (char*)GIT_COMMIT_HASH;
 	#endif
 
     initializeCrashpad(dbName, appName, appVersion);
