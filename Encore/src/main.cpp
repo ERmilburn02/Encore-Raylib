@@ -26,6 +26,8 @@
 #include "game/timingvalues.h"
 #include "game/gameplay/gameplayRenderer.h"
 
+#include "crashhandler.h"
+
 #include <thread>
 #include <atomic>
 
@@ -730,6 +732,13 @@ bool songAlbumArtLoadedGameplay = false;
 
 int main(int argc, char* argv[])
 {
+    registerCrashHandler();
+
+    // DEBUG - THIS WILL CRASH
+    *(volatile int *)0 = 0;
+
+    return 1;
+
     Units u = Units::getInstance();
     commitHash.erase(7);
 	SetConfigFlags(FLAG_MSAA_4X_HINT);
