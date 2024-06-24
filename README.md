@@ -1,3 +1,5 @@
+# **BRANCH IS BROKEN, PLEASE DO NOT USE!**
+
 # Encore
 
 [![Chat with us on Discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg)](https://discord.gg/GhkgVUAC9v)
